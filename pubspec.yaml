@@ -1,0 +1,45 @@
+# ============================================================
+#  pubspec.yaml — "KTP & daftar belanja" project Flutter.
+#  Berisi nama project dan daftar package (pustaka) yang dipakai.
+#  Setiap kali file ini diubah, jalankan di terminal: flutter pub get
+#  VERSI 2: ditambah bagian "assets" untuk logo RSIA.
+# ============================================================
+
+name: rme_pasien              # nama project (huruf kecil + underscore saja)
+description: Portal Pasien RME RSI Aisyiyah Nganjuk.
+publish_to: 'none'            # project ini tidak akan dipublikasikan ke pub.dev
+version: 2.0.0+2              # versi aplikasi (+2 = nomor build di Android/iOS)
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'       # versi Dart yang dibutuhkan project ini
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # ===== Package yang DIPAKAI oleh script panduan ini =====
+  # Mengirim POST/GET ke API Laravel.
+  # Dipakai di: login_page.dart & change_password_page.dart
+  http: ^1.2.2
+
+  # Menyimpan token & data kecil di penyimpanan HP.
+  # Dipakai saat login (simpan token), logout (hapus token),
+  # splash & onboarding (penanda "promosi sudah dilihat").
+  shared_preferences: ^2.3.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0       # aturan penulisan kode yang rapi (linter)
+
+flutter:
+  uses-material-design: true  # WAJIB, agar ikon bawaan (Icons.*) bisa dipakai
+
+  # ===== BARU di versi 2: daftar folder GAMBAR aplikasi =====
+  # Baris "- assets/images/" mengizinkan SEMUA file di folder
+  # assets/images/ dipakai lewat Image.asset('assets/images/nama.png').
+  # Tanpa pendaftaran ini, Image.asset akan ERROR (terlihat seperti
+  # halaman kosong + pesan "Unable to load asset").
+  # Letakkan logo.png & rsia.png ke folder assets/images/ di project Anda.
+  assets:
+    - assets/images/
